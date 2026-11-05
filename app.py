@@ -32,7 +32,7 @@ if uploaded_file is not None:
     ]
 
     if 'Total_Crimes' not in df.columns:
-        df['Total_Crimes'] = df[crime_columns].sum(axis=1)
+       df['Total_Crimes'] = df[crime_columns].sum(axis=1)
 
     st.success("Dataset uploaded successfully!")
 

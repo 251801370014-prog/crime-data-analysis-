@@ -44,10 +44,15 @@ if uploaded_file is not None:
 
     # Convert numeric columns
     for col in df.columns:
-        if col != state_col:
-            df[col] = pd.to_numeric(
-                df[col], errors="ignore"
-            )
+    if col == state_col:
+        continue
+
+    converted = pd.to_numeric(
+        df[col], errors="coerce"
+    )
+
+    if df[col].notna().sum() == converted.notna().sum():
+        df[col] = converted
 
     crime_columns = [
         c for c in df.select_dtypes(include="number").columns

@@ -340,6 +340,17 @@ if uploaded_file is not None:
 
             # BAR CHART
 
-            fig5 = px.bar(
+                        fig5 = px.bar(
+                crime_totals,
+                x="Crime Category",
+                y="Total Cases",
+                title="Crime Category Comparison",
+                color="Total Cases"
+            )
+
+            st.plotly_chart(
+                fig5,
+                use_container_width=True
+            )
                 crime_totals,
                

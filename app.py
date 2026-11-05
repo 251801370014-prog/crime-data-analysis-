@@ -43,13 +43,16 @@ if uploaded_file is not None:
     )
 
     # Convert numeric columns
-    for col in df.columns:
-    if col == state_col:
-        continue
+        for col in df.columns:
+        if col == state_col:
+            continue
 
-    converted = pd.to_numeric(
-        df[col], errors="coerce"
-    )
+        converted = pd.to_numeric(
+            df[col], errors="coerce"
+        )
+
+        if df[col].notna().sum() == converted.notna().sum():
+            df[col] = converted
 
     if df[col].notna().sum() == converted.notna().sum():
         df[col] = converted

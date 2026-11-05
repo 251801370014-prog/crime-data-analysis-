@@ -54,6 +54,9 @@ if uploaded_file is not None:
     if df[col].notna().sum() == converted.notna().sum():
         df[col] = converted
 
+    if df[col].notna().sum() == converted.notna().sum():
+        df[col] = converted
+
     crime_columns = [
         c for c in df.select_dtypes(include="number").columns
         if c != year_col
